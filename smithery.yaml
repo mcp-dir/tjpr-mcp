@@ -1,0 +1,39 @@
+# Smithery configuration for Jurisprudência TJPR
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_tjpr
+
+name: tjpr-mcp
+displayName: "Jurisprudência TJPR"
+description: >
+  Pesquise jurisprudência do TJPR direto do seu agente de IA, em português comum. Cada acórdão vem com órgão julgador, relator, data, o trecho exato que casou a busca e o link no site oficial. A mesma conexão alcança outros 16 tribunais, incluindo STF, STJ e TST, para comparar o entendimento paranaense com o das cortes superiores. Grátis, sem login.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/tjpr-mcp
+repository: https://github.com/mcp-dir/tjpr-mcp
+
+tags:
+  - tjpr
+  - parana
+  - jurisprudencia
+  - acordaos
+  - tribunal-de-justica
+  - case-law
+  - brazil
+  - read-only
+  - no-auth
+  - free
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_tjpr
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_tjpr/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.

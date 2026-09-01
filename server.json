@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/tjpr-mcp",
+  "title": "Jurisprudência TJPR",
+  "description": "Brazilian case law search for AI agents from the Paraná state court (TJPR), plus 16 other courts on ",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/tjpr-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_tjpr"
+    }
+  ]
+}
